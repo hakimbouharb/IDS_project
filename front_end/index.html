@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snort IDS Dashboard</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 20px;
+            background-color: #f4f4f4;
         }
         h1 {
             color: #333;
+            text-align: center;
         }
         #logContainer {
             max-height: 300px;
@@ -19,6 +20,25 @@
             border: 1px solid #ccc;
             padding: 10px;
             margin-top: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .logEntry {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .clearButton {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .clearButton:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -29,14 +49,22 @@
         <!-- Display Snort alerts here dynamically -->
     </div>
 
+    <button class="clearButton" onclick="clearLogs()">Clear Logs</button>
+
     <script>
+        // Function to clear logs
+        function clearLogs() {
+            document.getElementById("logContainer").innerHTML = "";
+        }
+
         // Simulated real-time updates for testing purposes
         setInterval(function () {
             // Simulated Snort alert data
             var alertData = "Alert: Possible intrusion detected - Source IP: 192.168.1.100, Destination IP: 192.168.1.1";
 
             // Create a new log entry
-            var logEntry = document.createElement("p");
+            var logEntry = document.createElement("div");
+            logEntry.classList.add("logEntry");
             logEntry.textContent = alertData;
 
             // Append the log entry to the log container

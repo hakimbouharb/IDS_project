@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snort IDS Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #logContainer {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snort IDS Dashboard</h1>
+
+    <div id="logContainer">
+        <!-- Display Snort alerts here dynamically -->
+    </div>
+
+    <script>
+        // Simulated real-time updates for testing purposes
+        setInterval(function () {
+            // Simulated Snort alert data
+            var alertData = "Alert: Possible intrusion detected - Source IP: 192.168.1.100, Destination IP: 192.168.1.1";
+
+            // Create a new log entry
+            var logEntry = document.createElement("p");
+            logEntry.textContent = alertData;
+
+            // Append the log entry to the log container
+            document.getElementById("logContainer").appendChild(logEntry);
+
+            // Scroll to the bottom to show the latest entry
+            document.getElementById("logContainer").scrollTop = document.getElementById("logContainer").scrollHeight;
+        }, 5000); // Simulated every 5 seconds
+    </script>
+</body>
+</html>
